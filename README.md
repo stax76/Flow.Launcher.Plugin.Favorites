@@ -33,7 +33,9 @@ Google = https://www.google.de
 Last system events = wt -- powershell -nologo -noexit -command get-eventlog system | select -first 500
 ```
 
-Ensure the Favorites Plugin is enabled in the Flow Launcher settings.
+Pressing the Ctrl key does not open a file but instead the folder of the file.
+
+There is a context menu to copy to the clipboard and to run as admin.
 
 It's a huge task to define everything manually, the reward is getting
 results that are not poluted with useless entries. The user has full control

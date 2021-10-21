@@ -22,7 +22,7 @@ namespace Flow.Launcher.Plugin.Favorites
                 if (_iconPath == null)
                 {
                     if (Value != null && Value.StartsWith("http"))
-                        _iconPath = Path.Combine(AssemblyDirectory, "Web.ico");
+                        _iconPath = Path.Combine(AssemblyDirectory, "Icons\\Web.ico");
                     else if (Value != null && Value.StartsWith("shell:"))
                         _iconPath = @"C:\Windows\explorer.exe";
                     else if (Value != null && Value.Contains(".") && File.Exists(Value))
@@ -30,7 +30,7 @@ namespace Flow.Launcher.Plugin.Favorites
                     else if (Directory.Exists(Value))
                         _iconPath = @"C:\Windows\explorer.exe";
                     else
-                        _iconPath = Path.Combine(AssemblyDirectory, "CommandLine.ico");
+                        _iconPath = Path.Combine(AssemblyDirectory, "Icons\\CommandLine.ico");
                 }
                 
                 return _iconPath;
