@@ -26,7 +26,7 @@ Create the definition file at:
 
 Here is an example configuration:
 
-````
+```
 CPP Folder = C:\My Projects\CPP Projects
 To Do = C:\Users\JonDoe\OneDrive\Documents\To Do.txt
 Google = https://www.google.de
