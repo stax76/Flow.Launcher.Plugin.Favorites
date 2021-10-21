@@ -1,6 +1,7 @@
 ﻿
-[Flow Launcher](https://flow-launcher.github.io/#/) plugin to
-define favorite apps, files, folders and URLs
+## About
+Favorites is a [Flow Launcher](https://flow-launcher.github.io/#/) plugin to
+define favorite apps, files, folders and URLs.
 
 The default behaviour of launcher apps is finding all apps that
 can be found in the system. The Favorites plugin is different,
