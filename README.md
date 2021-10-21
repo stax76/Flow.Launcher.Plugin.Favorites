@@ -1,4 +1,7 @@
 ﻿
+[Flow Launcher](https://flow-launcher.github.io/#/) plugin to
+define favorite apps, files, folders and URLs
+
 The default behaviour of launcher apps is finding all apps that
 can be found in the system. The Favorites plugin is different,
 it let's users define apps using a INI like conf file.
