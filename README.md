@@ -43,3 +43,17 @@ over the results. Personally I use only two plugins, Browser Bookmarks
 and Favorites.
 
 ![Screenshot](Screenshot.jpg)
+
+## Links
+
+https://www.winhelponline.com/blog/shell-commands-to-access-the-special-folders
+
+https://www.tenforums.com/tutorials/77458-rundll32-commands-list-windows-10-a.html
+
+https://www.tenforums.com/tutorials/78214-settings-pages-list-uri-shortcuts-windows-10-a.html
+
+https://betanews.com/2015/06/19/windows-10-tips-settings-control-panel
+
+https://www.ghacks.net/2017/06/10/windows-msc-files-overview
+
+https://support.microsoft.com/de-de/topic/how-to-run-control-panel-tools-by-typing-a-command-bce95b4d-e8c2-1cd0-ee0d-027679d520a6
