@@ -101,7 +101,7 @@ namespace Flow.Launcher.Plugin.Favorites
         {
             List<Item> ret = new List<Item>();
 
-            if (string.IsNullOrEmpty(value) || value.Length < 2)
+            if (string.IsNullOrEmpty(value))
                 return ret;
 
             string[] searches = value.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);

@@ -2,7 +2,7 @@
   "profiles": {
     "Flow.Launcher.Plugin.Favorites": {
       "commandName": "Executable",
-      "executablePath": "D:\\Projects\\CS\\Launcher\\Flow Launcher\\Flow.Launcher\\Output\\Debug\\Flow.Launcher.exe"
+      "executablePath": "D:\\Projects\\CS\\Flow Launcher\\Flow.Launcher\\Output\\Debug\\Flow.Launcher.exe"
     }
   }
 }
