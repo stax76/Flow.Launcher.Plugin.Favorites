@@ -46,12 +46,12 @@ namespace Flow.Launcher.Plugin.Favorites
         public List<Result> Query(Query query)
         {
             List<Result> results = new List<Result>();
-            int score = int.MaxValue;
+            int score = int.MaxValue - 100000;
 
             foreach (Item item in Item.Filter(_items, query.Search))
             {
                 Item tempItem = item;
-                score -= 100;
+                score -= 5;
 
                 results.Add(new Result()
                 {
