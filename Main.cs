@@ -64,7 +64,7 @@ namespace Flow.Launcher.Plugin.Favorites
                         tempItem.Execute();
                         return true;
                     }
-                }); ; ; ;
+                });
             }
             
             return results;

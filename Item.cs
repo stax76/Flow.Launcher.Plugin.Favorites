@@ -26,7 +26,14 @@ namespace Flow.Launcher.Plugin.Favorites
                     else if (Value != null && Value.StartsWith("shell:"))
                         _iconPath = @"C:\Windows\explorer.exe";
                     else if (Value != null && Value.Contains(".") && File.Exists(Value))
-                        _iconPath = Value;
+                    {
+                        string txtIconPath = Path.Combine(AssemblyDirectory, "Icons\\txt.ico");
+
+                        if (Value.EndsWith(".txt") && File.Exists(txtIconPath))
+                            _iconPath = txtIconPath;
+                        else
+                            _iconPath = Value;
+                    }
                     else if (Directory.Exists(Value))
                         _iconPath = @"C:\Windows\explorer.exe";
                     else

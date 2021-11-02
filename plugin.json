@@ -2,11 +2,11 @@
     "ID": "D0DB38F5-0199-4DFC-8A8D-1B22F68C157C",
     "ActionKeyword": "*",
     "Name": "Favorites",
-    "Description": "a new plugin for Flow",
+    "Description": "Flow Launcher plugin to define favorite apps, files, folders and URLs.",
     "Author": "stax76",
-    "Version": "1.0.0",
+    "Version": "1.1.0",
     "Language": "csharp",
     "Website": "https://github.com/stax76/Flow.Launcher.Plugin.Favorites",
-    "IcoPath": "icon.png",
+    "IcoPath": "Icons\\Web.ico",
     "ExecuteFileName": "Flow.Launcher.Plugin.Favorites.dll"
 }
