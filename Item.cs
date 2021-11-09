@@ -150,7 +150,7 @@ namespace Flow.Launcher.Plugin.Favorites
                     if (char.IsUpper(ch))
                         upperChars += ch;
 
-                if (upperChars.ToLower().StartsWith(valueLower) && !ret.Contains(item))
+                if (upperChars.ToLower().Contains(valueLower) && !ret.Contains(item))
                     ret.Add(item);
             }
 

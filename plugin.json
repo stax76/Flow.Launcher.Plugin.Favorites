@@ -4,7 +4,7 @@
     "Name": "Favorites",
     "Description": "Flow Launcher plugin to define favorite apps, files, folders and URLs.",
     "Author": "stax76",
-    "Version": "1.1.0",
+    "Version": "1.2.0",
     "Language": "csharp",
     "Website": "https://github.com/stax76/Flow.Launcher.Plugin.Favorites",
     "IcoPath": "Icons\\Web.ico",
