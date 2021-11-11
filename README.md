@@ -36,7 +36,7 @@ CPP Folder = C:\My Projects\CPP
 To Do = C:\Users\JonDoe\OneDrive\Documents\To Do.txt
 Google = https://www.google.de
 Last system events = wt -- powershell -nologo -noexit -command get-eventlog system | select -first 500
-Wheater (Store/UWP/MSIX) = C:\Users\JonDoe\OneDrive\Other\Shortcuts\Weather.lnk
+Wheater (Store/UWP/MSIX) = C:\Users\JonDoe\OneDrive\Shortcuts\Weather.lnk
 ```
 
 Pressing the Ctrl key does not open a file but instead the folder of the file.
