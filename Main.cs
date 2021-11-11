@@ -1,7 +1,7 @@
 
-using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace Flow.Launcher.Plugin.Favorites
 {
@@ -10,6 +10,9 @@ namespace Flow.Launcher.Plugin.Favorites
         List<Item> _items = new List<Item>();
 
         public void Init(PluginInitContext context) => ReloadData();
+
+        public static string AssemblyDirectory { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        public static string DataDirectory { get; } = Path.Combine(AssemblyDirectory, @"..\..\");
 
         public List<Result> LoadContextMenus(Result selectedResult)
         {
@@ -72,8 +75,7 @@ namespace Flow.Launcher.Plugin.Favorites
 
         public void ReloadData()
         {
-            string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string confFile = Path.Combine(appDataDir, @"FlowLauncher\Settings\Favorites.conf");
+            string confFile = DataDirectory + @"Settings\Favorites.conf";
             _items = Item.LoadFile(confFile);
         }
     }

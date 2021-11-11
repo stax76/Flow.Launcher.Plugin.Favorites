@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 
@@ -13,8 +12,6 @@ namespace Flow.Launcher.Plugin.Favorites
         public string Name { get; set; }
         public string Value { get; set; }
 
-        private static string AssemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        
         string _iconPath;
         
         public string IconPath {
@@ -22,12 +19,12 @@ namespace Flow.Launcher.Plugin.Favorites
                 if (_iconPath == null)
                 {
                     if (Value != null && Value.StartsWith("http"))
-                        _iconPath = Path.Combine(AssemblyDirectory, "Icons\\Web.ico");
+                        _iconPath = Path.Combine(Favorites.AssemblyDirectory, "Icons\\Web.ico");
                     else if (Value != null && Value.StartsWith("shell:"))
                         _iconPath = @"C:\Windows\explorer.exe";
                     else if (Value != null && Value.Contains(".") && File.Exists(Value))
                     {
-                        string txtIconPath = Path.Combine(AssemblyDirectory, "Icons\\txt.ico");
+                        string txtIconPath = Path.Combine(Favorites.AssemblyDirectory, "Icons\\txt.ico");
 
                         if (Value.EndsWith(".txt") && File.Exists(txtIconPath))
                             _iconPath = txtIconPath;
@@ -37,7 +34,7 @@ namespace Flow.Launcher.Plugin.Favorites
                     else if (Directory.Exists(Value))
                         _iconPath = @"C:\Windows\explorer.exe";
                     else
-                        _iconPath = Path.Combine(AssemblyDirectory, "Icons\\CommandLine.ico");
+                        _iconPath = Path.Combine(Favorites.AssemblyDirectory, "Icons\\CommandLine.ico");
                 }
                 
                 return _iconPath;
@@ -51,9 +48,8 @@ namespace Flow.Launcher.Plugin.Favorites
 
             if (Value.Length > 3 && Value[1..].StartsWith(":\\") &&
                 Value.Contains(" ") && (File.Exists(Value) || Directory.Exists(Value)))
-            {
+
                 Value = "\"" + Value + "\"";
-            }
 
             Match match = Regex.Match(Value, "((?<file>[^\\s\"]+)|\"(?<file>.+?)\") *(?<args>[^\\f\\r]*)");
 
