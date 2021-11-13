@@ -48,9 +48,9 @@ the great reward is getting clean results that are not cluttered with never used
 there is full control over the results. Personally I use only two plugins:
 Favorites (Alt+Space) and Browser Bookmarks (Shift+Space, b keyword).
 
-Tip 1: To edit the favorites conf file use an awesome text editor such as VS Code
-(my favorite), Sublime Text or NeoVim. Put new entries on top so you don't have
-to navigate to the bottom all the time. After editing the conf file refresh the
+Tip 1: To edit the favorites conf file use an advanced text editor like VS Code,
+Sublime Text or NeoVim. Put new entries on top so you don't have to navigate
+to the bottom all the time. After editing the conf file refresh the
 definitions by pressing F5 in Flow Launchers main window.
 
 Tip 2: For Microsoft Store (UWP/MSIX) apps navigate File Explorer to `Shell:AppsFolder`,
