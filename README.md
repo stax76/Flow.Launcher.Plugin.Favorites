@@ -8,6 +8,10 @@ Launcher apps typically find all installed apps, the Favorites plugin is
 different, it let's users define apps using a conf file, this has the great
 advantage getting clean results that are not cluttered with never used entries.
 
+The Favorites plugin is ideal for people that don't want to type much,
+my typical queries are most of the time only 2-3 character long,
+I enter rarely 4 or more characters.
+
 Also supported are:
 
 1. Files
