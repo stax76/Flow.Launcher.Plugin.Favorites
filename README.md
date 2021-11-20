@@ -1,16 +1,16 @@
 ﻿
 ## About
 
-Favorites is a [Flow Launcher](https://flow-launcher.github.io/#/) plugin to
-define favorite apps, files, folders, URLs and command lines.
+Favorites is a [Flow Launcher](https://flow-launcher.github.io/#/)
+plugin to define favorite apps, files, folders, URLs and command lines.
 
-Launcher apps typically find all installed apps, the Favorites plugin is
-different, it let's users define apps using a conf file, this has the great
-advantage getting clean results that are not cluttered with never used entries.
+Launcher apps typically find all installed apps, the Favorites plugin
+is different, it let's users define apps using a conf file, this has
+the advantage getting clean results that are not cluttered with never
+or rarely used items.
 
-The Favorites plugin is ideal for people that don't want to type much,
-my typical queries are most of the time only 2-3 character long,
-I enter rarely 4 or more characters.
+The Favorites plugin is ideal for people that prefer typing short
+queries with few characters.
 
 Also supported are:
 
@@ -24,6 +24,10 @@ Also supported are:
 Extract the files in the release and put them at:
 
 `C:\Users\JonDoe\AppData\Roaming\FlowLauncher\Plugins\Flow.Launcher.Plugin.Favorites`
+
+Or use Flow Launcher's built-in Plugin Manager to install the Favorites plugin:
+
+`pm install Favorites`
 
 Create the definition file at:
 
@@ -47,18 +51,14 @@ Pressing the Ctrl key does not open a file but instead the folder of the file.
 
 There is a context menu to copy to the clipboard and to run as admin.
 
-It's a huge task to define all apps, files, folders, URLs and command lines manually,
-the great reward is getting clean results that are not cluttered with never used entries,
-there is full control over the results. Personally I use only two plugins:
-Favorites (Alt+Space) and Browser Bookmarks (Shift+Space, b keyword).
+Tip 1: To edit the favorites conf file use an text editor. Put new
+entries on top so you don't have to navigate to the bottom all the
+time. After editing the conf file refresh the definitions by pressing
+F5 in Flow Launchers main window.
 
-Tip 1: To edit the favorites conf file use an advanced text editor like VS Code,
-Sublime Text or NeoVim. Put new entries on top so you don't have to navigate
-to the bottom all the time. After editing the conf file refresh the
-definitions by pressing F5 in Flow Launchers main window.
-
-Tip 2: For Microsoft Store (UWP/MSIX) apps navigate File Explorer to `Shell:AppsFolder`,
-in there you can search for apps and create shortcuts (.lnk files) using the context menu.
+Tip 2: For Microsoft Store (UWP/MSIX) apps navigate File Explorer to
+`Shell:AppsFolder`, in there you can search for apps and create
+shortcuts (.lnk files) using the context menu.
 
 ![Screenshot](Screenshot.jpg)
 
