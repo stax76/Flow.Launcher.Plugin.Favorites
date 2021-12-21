@@ -49,6 +49,8 @@ Wheater (Store/UWP/MSIX) = C:\Users\JonDoe\OneDrive\Shortcuts\Weather.lnk
 
 Pressing the Ctrl key does not open a file but instead the folder of the file.
 
+Pressing Ctrl+Shift starts as admin.
+
 There is a context menu to copy to the clipboard and to run as admin.
 
 Tip 1: To edit the favorites conf file use an text editor. Put new
@@ -59,6 +61,9 @@ F5 in Flow Launchers main window.
 Tip 2: For Microsoft Store (UWP/MSIX) apps navigate File Explorer to
 `Shell:AppsFolder`, in there you can search for apps and create
 shortcuts (.lnk files) using the context menu.
+
+Tip 3: The Favorites plugin detects changes of the Favorites.conf file
+automatically and reloads the file.
 
 ![Screenshot](Screenshot.jpg)
 

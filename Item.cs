@@ -55,9 +55,10 @@ namespace Flow.Launcher.Plugin.Favorites
 
             var info = new ProcessStartInfo();
 
-            bool controlKeyIsPressed = Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl);
+            bool showParent = (Keyboard.IsKeyDown(Key.LeftCtrl)  || Keyboard.IsKeyDown(Key.RightCtrl)) &&
+                             !(Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift));
 
-            if (controlKeyIsPressed)
+            if (showParent)
                 info.FileName = Path.GetDirectoryName(match.Groups["file"].Value);
             else
             {
