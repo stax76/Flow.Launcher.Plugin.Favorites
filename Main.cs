@@ -62,10 +62,14 @@ namespace Flow.Launcher.Plugin.Favorites
             {
                 Item tempItem = item;
                 score -= 5;
+                string title = tempItem.Name;
+
+                if (title.StartsWith("_"))
+                    title = title.Substring(1);
 
                 results.Add(new Result()
                 {
-                    Title = tempItem.Name,
+                    Title = title,
                     SubTitle = tempItem.Value,
                     IcoPath = tempItem.IconPath,
                     Score = score,

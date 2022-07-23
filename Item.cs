@@ -105,11 +105,20 @@ namespace Flow.Launcher.Plugin.Favorites
         {
             List<Item> ret = new List<Item>();
 
-            if (string.IsNullOrEmpty(value) || value.Length == 1)
+            if (string.IsNullOrEmpty(value))
                 return ret;
 
             string[] searches = value.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
             string valueLower = value.ToLower();
+
+            if (value.Length == 1)
+            {
+                foreach (Item item in items)
+                    if (item.Name.StartsWith("_") && item.Name.ToLower()[1] == value[0])
+                        ret.Add(item);
+
+                return ret;
+            }
 
             // all searches
             if (searches.Length > 1)

@@ -53,14 +53,13 @@ Pressing Ctrl+Shift starts as admin.
 
 There is a context menu to copy to the clipboard and to run as admin.
 
-Tip 1: To edit the favorites conf file use an text editor. Put new
-entries on top so you don't have to navigate to the bottom all the
-time. After editing the conf file refresh the definitions by pressing
-F5 in Flow Launchers main window.
+Tip 1: To edit the favorites conf file use a text editor, for instance Sublime Text,
+use Flow Launcher to open the file as shown in the example.
 
 Tip 2: For Microsoft Store (UWP/MSIX) apps navigate File Explorer to
 `Shell:AppsFolder`, in there you can search for apps and create
-shortcuts (.lnk files) using the context menu.
+shortcuts (.lnk files) using the context menu, shortcuts can then
+be used to start the app.
 
 Tip 3: The Favorites plugin detects changes of the Favorites.conf file
 automatically and reloads the file.
@@ -78,3 +77,7 @@ https://www.ghacks.net/2017/06/10/windows-msc-files-overview
 https://support.microsoft.com/de-de/topic/how-to-run-control-panel-tools-by-typing-a-command-bce95b4d-e8c2-1cd0-ee0d-027679d520a6
 
 https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app
+
+## List of my apps
+
+https://stax76.github.io/frankskare
