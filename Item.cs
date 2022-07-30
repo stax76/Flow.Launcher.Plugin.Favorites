@@ -70,11 +70,11 @@ namespace Flow.Launcher.Plugin.Favorites
                              !(Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift));
 
             if (showParent)
-                info.FileName = ExpandEnvVars(Path.GetDirectoryName(match.Groups["file"].Value));
+                info.FileName = Path.GetDirectoryName(match.Groups["file"].Value);
             else
             {
-                info.FileName = ExpandEnvVars(match.Groups["file"].Value);
-                info.Arguments = ExpandEnvVars(match.Groups["args"].Value);
+                info.FileName = match.Groups["file"].Value;
+                info.Arguments = match.Groups["args"].Value;
             }
             
             info.UseShellExecute = true;
