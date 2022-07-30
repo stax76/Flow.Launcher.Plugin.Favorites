@@ -11,7 +11,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>1.4.0</Version>
+    <Version>1.5.0</Version>
     <Description>Flow Launcher plugin to define favorite apps, files, folders and URLs.</Description>
   </PropertyGroup>
 

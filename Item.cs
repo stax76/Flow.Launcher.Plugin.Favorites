@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -18,40 +19,50 @@ namespace Flow.Launcher.Plugin.Favorites
             get {
                 if (_iconPath == null)
                 {
-                    if (Value != null && Value.StartsWith("http"))
+                    string value = Value;
+
+                    if (value != null && value.Contains("%"))
+                        value = ExpandEnvVars(value);
+
+                    if (value != null && value.StartsWith("http"))
                         _iconPath = Path.Combine(Favorites.AssemblyDirectory, "Icons\\Web.ico");
-                    else if (Value != null && Value.StartsWith("shell:"))
+                    else if (value != null && value.StartsWith("shell:"))
                         _iconPath = @"C:\Windows\explorer.exe";
-                    else if (Value != null && Value.Contains(".") && File.Exists(Value))
+                    else if (value != null && value.Contains(".") && File.Exists(value))
                     {
                         string txtIconPath = Path.Combine(Favorites.AssemblyDirectory, "Icons\\txt.ico");
 
-                        if (Value.EndsWith(".txt") && File.Exists(txtIconPath))
+                        if (value.EndsWith(".txt") && File.Exists(txtIconPath))
                             _iconPath = txtIconPath;
                         else
-                            _iconPath = Value;
+                            _iconPath = value;
                     }
-                    else if (Directory.Exists(Value))
+                    else if (Directory.Exists(value))
                         _iconPath = @"C:\Windows\explorer.exe";
                     else
                         _iconPath = Path.Combine(Favorites.AssemblyDirectory, "Icons\\CommandLine.ico");
                 }
-                
+
                 return _iconPath;
             }
         }
         
         public void Execute(bool asAdmin = false)
         {
-            if (string.IsNullOrEmpty(Value))
+            string value = Value;
+
+            if (string.IsNullOrEmpty(value))
                 return;
 
-            if (Value.Length > 3 && Value[1..].StartsWith(":\\") &&
-                Value.Contains(" ") && (File.Exists(Value) || Directory.Exists(Value)))
+            if (value.Contains("%"))
+                value = ExpandEnvVars(value);
 
-                Value = "\"" + Value + "\"";
+            if (value.Length > 3 && value[1..].StartsWith(":\\") &&
+                value.Contains(" ") && (File.Exists(value) || Directory.Exists(value)))
 
-            Match match = Regex.Match(Value, "((?<file>[^\\s\"]+)|\"(?<file>.+?)\") *(?<args>[^\\f\\r]*)");
+                value = "\"" + value + "\"";
+
+            Match match = Regex.Match(value, "((?<file>[^\\s\"]+)|\"(?<file>.+?)\") *(?<args>[^\\f\\r]*)");
 
             var info = new ProcessStartInfo();
 
@@ -59,11 +70,11 @@ namespace Flow.Launcher.Plugin.Favorites
                              !(Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift));
 
             if (showParent)
-                info.FileName = Path.GetDirectoryName(match.Groups["file"].Value);
+                info.FileName = ExpandEnvVars(Path.GetDirectoryName(match.Groups["file"].Value));
             else
             {
-                info.FileName = match.Groups["file"].Value;
-                info.Arguments = match.Groups["args"].Value;
+                info.FileName = ExpandEnvVars(match.Groups["file"].Value);
+                info.Arguments = ExpandEnvVars(match.Groups["args"].Value);
             }
             
             info.UseShellExecute = true;
@@ -76,6 +87,17 @@ namespace Flow.Launcher.Plugin.Favorites
             try {
                 p.Start();
             } catch { }
+        }
+
+        static string ExpandEnvVars(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return "";
+
+            if (value.Contains("%"))
+                value = Environment.ExpandEnvironmentVariables(value);
+
+            return value;
         }
 
         public static List<Item> LoadFile(string path)
@@ -114,8 +136,18 @@ namespace Flow.Launcher.Plugin.Favorites
             if (value.Length == 1)
             {
                 foreach (Item item in items)
-                    if (item.Name.StartsWith("_") && item.Name.ToLower()[1] == value[0])
+                {
+                    if (item.Name.Contains("__"))
+                        item.Name.Replace("__", "!dbl!");
+
+                    int index = item.Name.IndexOf("_");
+
+                    if (index > -1 && item.Name.Length > index + 1 && item.Name.ToLower()[index + 1] == value[0])
                         ret.Add(item);
+
+                    if (item.Name.Contains("!dbl!"))
+                        item.Name = item.Name.Replace("!dbl!", "_");
+                }
 
                 return ret;
             }

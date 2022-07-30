@@ -64,8 +64,14 @@ namespace Flow.Launcher.Plugin.Favorites
                 score -= 5;
                 string title = tempItem.Name;
 
-                if (title.StartsWith("_"))
-                    title = title.Substring(1);
+                if (title.Contains("__"))
+                    title = title.Replace("__", "!dbl!");
+
+                if (title.Contains("_"))
+                    title = title.Replace("_", "");
+
+                if (title.Contains("!dbl!"))
+                    title = title.Replace("!dbl!", "_");
 
                 results.Add(new Result()
                 {

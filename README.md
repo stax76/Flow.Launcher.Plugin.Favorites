@@ -53,16 +53,20 @@ Pressing Ctrl+Shift starts as admin.
 
 There is a context menu to copy to the clipboard and to run as admin.
 
-Tip 1: To edit the favorites conf file use a text editor, for instance Sublime Text,
+To edit the favorites conf file use a text editor, for instance Sublime Text,
 use Flow Launcher to open the file as shown in the example.
+The Favorites plugin detects changes of the Favorites.conf file
+automatically and reloads the file automatically.
 
-Tip 2: For Microsoft Store (UWP/MSIX) apps navigate File Explorer to
+For Microsoft Store (UWP/MSIX) apps navigate File Explorer to
 `Shell:AppsFolder`, in there you can search for apps and create
 shortcuts (.lnk files) using the context menu, shortcuts can then
 be used to start the app.
 
-Tip 3: The Favorites plugin detects changes of the Favorites.conf file
-automatically and reloads the file.
+Underscores have a special meaning, they enable single character
+input matching, the character after the underscore is matched.
+
+Environment variables are expanded.
 
 ![Screenshot](Screenshot.jpg)
 
