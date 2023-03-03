@@ -4,10 +4,10 @@
 Favorites is a [Flow Launcher](https://flow-launcher.github.io/#/)
 plugin to define favorite apps, files, folders, URLs and command lines.
 
-Launcher apps typically find all installed apps, the Favorites plugin
-is different, it let's users define apps using a conf file, this has
-the advantage getting clean results that are not cluttered with never
-or rarely used items.
+Launcher apps typically find all installed apps. The Favorites plugin
+is different, it lets users define apps using a conf file. This has
+the advantage of getting clean results that are not cluttered with items
+which are never or rarely used.
 
 The Favorites plugin is ideal for people that prefer typing short
 queries with few characters.
@@ -21,50 +21,60 @@ Also supported are:
 
 ## Usage
 
+### Installation
+
 Extract the files in the release and put them at:
 
-`C:\Users\JonDoe\AppData\Roaming\FlowLauncher\Plugins\Flow.Launcher.Plugin.Favorites`
+`%APPDATA%\FlowLauncher\Plugins\Flow.Launcher.Plugin.Favorites`
 
 Or use Flow Launcher's built-in Plugin Manager to install the Favorites plugin:
 
 `pm install Favorites`
 
+### Setup the definition file
+
 Create the definition file at:
 
-`C:\Users\JonDoe\AppData\Roaming\FlowLauncher\Settings\Favorites.conf`
+`%APPDATA%\FlowLauncher\Settings\Favorites.conf`
 
 Or create it in the portable settings folder if you use portable mode.
+You can find this folder by searching for "userdata" in FlowLauncher.
+
+Now fill the definition file with the items you want to add to your Favorites.
 
 Here is an example configuration:
 
 ```
-Favorites = C:\Users\JonDoe\AppData\Roaming\FlowLauncher\Settings\Favorites.conf
-VS Code = C:\Users\JonDoe\AppData\Local\Programs\Microsoft VS Code\Code.exe
+Favorites = %APPDATA%\FlowLauncher\Settings\Favorites.conf
+VS Code = %LOCALAPPDATA%\Programs\Microsoft VS Code\Code.exe
 CPP Folder = C:\My Projects\CPP
-To Do = C:\Users\JonDoe\OneDrive\Documents\To Do.txt
+To Do = %USERPROFILE%\OneDrive\Documents\To Do.txt
 Google = https://www.google.de
 Last system events = wt -- powershell -nologo -noexit -command get-eventlog system | select -first 500
-Wheater (Store/UWP/MSIX) = C:\Users\JonDoe\OneDrive\Shortcuts\Weather.lnk
+Wheater (Store/UWP/MSIX) = %USERPROFILE%\OneDrive\Shortcuts\Weather.lnk
 ```
+### Controls
 
-Pressing the Ctrl key does not open a file but instead the folder of the file.
+Press the Ctrl key to open the folder of the file, rather than the file itself.
 
-Pressing Ctrl+Shift starts as admin.
+Press Ctrl+Shift to launch a file as admin.
 
-There is a context menu to copy to the clipboard and to run as admin.
+There is a context menu to copy an entry to the clipboard or to run it as admin.
 
-To edit the favorites conf file use a text editor, for instance Sublime Text,
-use Flow Launcher to open the file as shown in the example.
+### Miscellanea
+
+To edit the Favorites.conf file, use a text editor, for instance Sublime Text.
+Use Flow Launcher to open the file as shown in the example below.
 The Favorites plugin detects changes of the Favorites.conf file
 automatically and reloads the file automatically.
 
-For Microsoft Store (UWP/MSIX) apps navigate File Explorer to
-`Shell:AppsFolder`, in there you can search for apps and create
-shortcuts (.lnk files) using the context menu, shortcuts can then
+For Microsoft Store (UWP/MSIX) apps, navigate File Explorer to
+`Shell:AppsFolder`. In there you can search for apps and create
+shortcuts (.lnk files) using the context menu. These shortcuts can then
 be used to start the app.
 
-Underscores have a special meaning, they enable single character
-input matching, the character after the underscore is matched.
+Underscores have a special meaning: they enable single character
+input matching. The character after the underscore is matched.
 
 Environment variables are expanded.
 
