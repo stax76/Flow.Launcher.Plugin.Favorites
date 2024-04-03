@@ -57,6 +57,8 @@ namespace Flow.Launcher.Plugin.Favorites
             if (value.Contains("%"))
                 value = ExpandEnvVars(value);
 
+            bool isFolder = Directory.Exists(value);
+
             if (value.Length > 3 && value[1..].StartsWith(":\\") &&
                 value.Contains(" ") && (File.Exists(value) || Directory.Exists(value)))
 
@@ -73,8 +75,16 @@ namespace Flow.Launcher.Plugin.Favorites
                 info.FileName = Path.GetDirectoryName(match.Groups["file"].Value);
             else
             {
-                info.FileName = match.Groups["file"].Value;
-                info.Arguments = match.Groups["args"].Value;
+                if (isFolder)
+                {
+                    info.FileName = Favorites.FolderAppPath;
+                    info.Arguments = Favorites.FolderAppArguments.Replace("%1",  match.Groups["file"].Value);
+                }
+                else
+                {
+                    info.FileName = match.Groups["file"].Value;
+                    info.Arguments = match.Groups["args"].Value;
+                }
             }
             
             info.UseShellExecute = true;
@@ -107,9 +117,16 @@ namespace Flow.Launcher.Plugin.Favorites
             if (!File.Exists(path))
                 return ret;
 
-            foreach (string line in File.ReadAllLines(path))
+            foreach (string it in File.ReadAllLines(path))
             {
-                if (!line.Contains("="))
+                string line = it.Trim();
+
+                if (line.StartsWith("#folder-app-path:"))
+                    Favorites.FolderAppPath = line.Substring(line.IndexOf(":") + 1).Trim();
+                else if (line.StartsWith("#folder-app-args:"))
+                    Favorites.FolderAppArguments = line.Substring(line.IndexOf(":") + 1).Trim();
+                
+                if (line.StartsWith("#") || !line.Contains("="))
                     continue;
 
                 Item item = new Item() {
@@ -130,7 +147,7 @@ namespace Flow.Launcher.Plugin.Favorites
             if (string.IsNullOrEmpty(value))
                 return ret;
 
-            string[] searches = value.Split(' ', System.StringSplitOptions.RemoveEmptyEntries);
+            string[] searches = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             string valueLower = value.ToLower();
 
             if (value.Length == 1)

@@ -1,48 +1,49 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
-    <AssemblyName>Flow.Launcher.Plugin.Favorites</AssemblyName>
-    <PackageId>Flow.Launcher.Plugin.Favorites</PackageId>
-    <Authors>stax76</Authors>
-    <PackageProjectUrl>https://github.com/stax76/Flow.Launcher.Plugin.Favorites</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/stax76/Flow.Launcher.Plugin.Favorites</RepositoryUrl>
-    <PackageTags>flow-launcher flow-plugin</PackageTags>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Version>1.5.0</Version>
-    <Description>Flow Launcher plugin to define favorite apps, files, folders and URLs.</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net7.0-windows7.0</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<AssemblyName>Flow.Launcher.Plugin.Favorites</AssemblyName>
+		<PackageId>Flow.Launcher.Plugin.Favorites</PackageId>
+		<Authors>stax76</Authors>
+		<PackageProjectUrl>https://github.com/stax76/Flow.Launcher.Plugin.Favorites</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/stax76/Flow.Launcher.Plugin.Favorites</RepositoryUrl>
+		<PackageTags>flow-launcher flow-plugin</PackageTags>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Version>1.6.0</Version>
+		<Description>Flow Launcher plugin to define favorite apps, files, folders and URLs.</Description>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>None</DebugType>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DebugSymbols>false</DebugSymbols>
+		<DebugType>None</DebugType>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile />
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <OutputPath>C:\Users\frank\AppData\Roaming\FlowLauncher\Plugins\Flow.Launcher.Plugin.Favorites</OutputPath>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile />
+		<GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+		<OutputPath>C:\Users\frank\AppData\Roaming\FlowLauncher\Plugins\Flow.Launcher.Plugin.Favorites</OutputPath>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="plugin.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="plugin.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Flow.Launcher.Plugin" Version="2.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Flow.Launcher.Plugin" Version="2.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Icons\CommandLine.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Icons\Web.ico">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Icons\CommandLine.ico">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Icons\Web.ico">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 </Project>

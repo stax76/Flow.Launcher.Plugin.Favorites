@@ -14,6 +14,9 @@ namespace Flow.Launcher.Plugin.Favorites
 
         public static string AssemblyDirectory { get; } = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         public static string DataDirectory { get; } = Path.Combine(AssemblyDirectory, @"..\..\");
+        public static string FolderAppPath { get; set; } = "explorer.exe";
+        public static string FolderAppArguments { get; set; } = "\"%1\"";
+
         public static DateTime LoadTime;
 
         public List<Result> LoadContextMenus(Result selectedResult)
