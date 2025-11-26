@@ -92,6 +92,10 @@ https://support.microsoft.com/de-de/topic/how-to-run-control-panel-tools-by-typi
 
 https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app
 
-## List of my apps
 
-https://stax76.github.io/frankskare
+Other projects from me
+----------------------
+
+A list of my other projects can be found here:
+
+https://stax76.github.io/software-list
